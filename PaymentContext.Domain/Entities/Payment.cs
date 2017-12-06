@@ -1,3 +1,5 @@
+using System;
+
 namespace PaymentContext.Domain.Entities
 {
     public abstract class Payment
