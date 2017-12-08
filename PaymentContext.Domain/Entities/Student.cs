@@ -14,10 +14,7 @@ namespace PaymentContext.Domain.Entities
         public string Address { get; private set; }
         public IReadOnlyCollection<Subscription> Subscriptions
         { 
-            get
-            {
-                return _subscriptions.ToArray();
-            }
+            get => _subscriptions.ToArray();
         }
 
         public Student(string firstName, string lastname, string document, string email)
