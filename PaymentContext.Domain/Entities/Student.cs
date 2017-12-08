@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using PaymentContext.Domain.ValueObjects;
 
 namespace PaymentContext.Domain.Entities
 {
@@ -7,20 +8,18 @@ namespace PaymentContext.Domain.Entities
     {
         private IList<Subscription> _subscriptions;
 
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Document { get; private set; }
-        public string Email { get; private set; }
+        public Name Name { get; private set; }
+        public Document Document { get; private set; }
+        public Email Email { get; private set; }
         public string Address { get; private set; }
         public IReadOnlyCollection<Subscription> Subscriptions
         { 
             get => _subscriptions.ToArray();
         }
 
-        public Student(string firstName, string lastname, string document, string email)
+        public Student(Name name, Document document, Email email)
         {
-            FirstName = firstName;
-            LastName = lastname;
+            Name = name;
             Document = document;
             Email = email;
             _subscriptions = new List<Subscription>();
