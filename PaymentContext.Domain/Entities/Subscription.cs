@@ -16,7 +16,10 @@ namespace PaymentContext.Domain.Entities
         public bool Active { get; private set; }
         public IReadOnlyCollection<Payment> Payments 
         { 
-            get => _payments.ToArray();
+            get
+            {
+                return _payments.ToArray();
+            }
         }
 
         public Subscription(DateTime? expireDate)
