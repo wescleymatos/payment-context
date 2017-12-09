@@ -9,6 +9,16 @@ namespace PaymentContext.Domain.Entities
     {
         private IList<Subscription> _subscriptions;
 
+        public Student(Name name, Document document, Email email)
+        {
+            Name = name;
+            Document = document;
+            Email = email;
+            _subscriptions = new List<Subscription>();
+
+            AddNotifications(name, document, email);
+        }
+
         public Name Name { get; private set; }
         public Document Document { get; private set; }
         public Email Email { get; private set; }
@@ -16,14 +26,6 @@ namespace PaymentContext.Domain.Entities
         public IReadOnlyCollection<Subscription> Subscriptions
         { 
             get => _subscriptions.ToArray();
-        }
-
-        public Student(Name name, Document document, Email email)
-        {
-            Name = name;
-            Document = document;
-            Email = email;
-            _subscriptions = new List<Subscription>();
         }
 
         public void AddSubscription(Subscription subscription)
