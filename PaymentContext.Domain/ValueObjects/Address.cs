@@ -1,3 +1,4 @@
+using Flunt.Validations;
 using PaymentContext.Shared.ValueObjects;
 
 namespace PaymentContext.Domain.ValueObjects
@@ -11,6 +12,11 @@ namespace PaymentContext.Domain.ValueObjects
             State = state;
             Country = country;
             ZipCode = zipCode;
+
+            AddNotifications(new Contract()
+                .Requires()
+                .HasMinLen(Street, 3, "Address.Street", "Nome deve conter pelo menos 3 caracteres.")
+            );
         }
 
         public string Street { get; private set; }
